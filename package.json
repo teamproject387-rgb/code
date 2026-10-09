@@ -1,10 +1,19 @@
 {
   "name": "aether-code-audit",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "server": "npm run start --prefix server",
+    "build": "cd client && npm install && npm run build",
+    "server": "node server/src/server.js",
     "client": "npm run dev --prefix client",
-    "build": "npm run build --prefix client",
     "start": "node server/src/server.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "sqlite3": "^5.1.7"
   }
 }

@@ -2,9 +2,13 @@ import sqlite3 from 'sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import os from 'os';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const dbPath = path.resolve(__dirname, '../aether_audit.db');
+const dbPath = process.env.VERCEL
+  ? path.join(os.tmpdir(), 'aether_audit.db')
+  : path.resolve(__dirname, '../aether_audit.db');
 
 const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {

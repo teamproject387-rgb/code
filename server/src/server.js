@@ -208,7 +208,11 @@ app.delete('/api/history', async (req, res) => {
   }
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`⚡ Aether Audit Backend running on http://localhost:${PORT}`);
-});
+// Start Server locally
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`⚡ Aether Audit Backend running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
