@@ -1,0 +1,10 @@
+{
+  "name": "aether-code-audit",
+  "version": "1.0.0",
+  "scripts": {
+    "server": "npm run start --prefix server",
+    "client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "node server/src/server.js"
+  }
+}
